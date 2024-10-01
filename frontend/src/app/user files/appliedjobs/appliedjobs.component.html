@@ -1,0 +1,43 @@
+<div class="maincontainer">
+    <div class="tag">
+        <h1>APPLIED JOBS LIST</h1>
+    </div>
+    <div class="searchbar">
+        <span class="p-input-icon-left">
+            <i class="fa fa-search"></i>
+            <input type="text" pInputText [(ngModel)]="searchText" name="search" placeholder="search"/>
+        </span>
+    </div>
+</div>
+<table class="styled-table">
+    <tr>
+        <th>Job Id</th>
+        <th>Comp Id</th>
+        <th>Comp Name</th>
+        <th>Title</th>
+        <th>JobType</th>
+        <th>Location</th>
+        <th>Salary</th>
+        <th>Skills</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor="let a of rowdata | search:searchText | paginate:{itemsPerPage:5,currentPage:p}">
+        <td>{{a.jobId}}</td>
+        <td>{{a.companyId}}</td>
+        <td>{{a.companyName}}</td>
+        <td>{{a.title}}</td>
+        <td>{{a.jobType}}</td>
+        <td>{{a.location}}</td>
+        <td>{{a.salary}}</td>
+        <td>{{a.jobSkills}}</td>
+        <td><div [ngSwitch]="a.status" class="statustxt">
+            <p *ngSwitchCase="'Applied'" class="text-primary ">APPLIED</p>
+            <p *ngSwitchCase="'Rejected'" class="text-danger ">REJECTED</p>
+            <p *ngSwitchCase="'Processing'" class="text-warning">Processingp>
+            <p *ngSwitchCase="'Approved'" class="text-success">APPROVED</p>
+        </div></td>
+    </tr>
+</table>
+<div class="paginationdiv">
+    <pagination-controls (pageChange)="p=$event" ></pagination-controls>
+</div>

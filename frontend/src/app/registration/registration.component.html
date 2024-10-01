@@ -1,0 +1,57 @@
+<div class="m">
+    <div class="container">
+      <div class="title">Registration</div>
+      <div class="content">
+        <form [formGroup]="SignUp" (ngSubmit)="submit()">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">UserName</span>
+              <input type="text"  formControlName ="userName" placeholder="Enter your UserName " >
+              <small class="p-error d-block" *ngIf="SignUp.get('userName')?.invalid && SignUp.get('userName')?.dirty && SignUp.get('userName')?.hasError('required')">Please enter the username</small> 
+            </div>
+
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="password" formControlName ="password" placeholder="Enter your password" >
+              <div *ngIf="SignUp.controls.password.invalid && (SignUp.controls.password.dirty || SignUp.controls.password.touched)">
+                <div *ngIf="SignUp.controls.password.errors.required"><small class="p-error">Password is required.</small></div>
+                <div *ngIf="SignUp.controls.password.errors.minlength"><small class="p-error">Password should be at least 8 characters long.</small></div>
+                <div *ngIf="SignUp.controls.password.errors.maxlength"><small class="p-error">Password should be maximum 12 characters long.</small></div>
+                <div *ngIf="SignUp.controls.password.errors.passwordRequirements"><small class="p-error">Password should contain at least one uppercase letter, one special character, and one number.</small></div>
+              </div>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Conform Password</span>
+                <input type="password" formControlName ="conformpassword" placeholder="Enter Conform password" >
+                <div *ngIf="SignUp.controls.conformpassword.invalid && (SignUp.controls.conformpassword.dirty || SignUp.controls.conformpassword.touched)">
+                    <div *ngIf="SignUp.controls.conformpassword.errors.required"><small class="p-error"> Conform Password is required.</small></div>
+                    <div *ngIf="SignUp.controls.conformpassword.errors.mustmatch"><small class="p-error">The conform password doesn't match </small></div>
+                </div>
+              </div>
+
+
+            <div class="input-box">
+              <span class="details"> Role</span>
+              <input type="text" formControlName ="role" placeholder="admin / user" >
+              <div *ngIf="SignUp.controls.role.invalid && (SignUp.controls.role.dirty || SignUp.controls.role.touched)">
+                <div *ngIf="SignUp.controls.role.errors.required"><small class="p-error"> please enter the role </small></div>
+              </div>
+            </div>
+
+
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="text" formControlName ="email" placeholder="Enter your Email" >
+              <small class="p-error d-block" *ngIf="SignUp.get('email')?.invalid && SignUp.get('email')?.dirty && SignUp.get('email')?.hasError('required')">Please enter the email</small> 
+            <small class="p-error d-block" *ngIf="SignUp.get('email')?.hasError('email')">Enter the correct email id format</small>
+            </div>
+
+          </div>
+          <div class="button">
+            <input type="submit"  value="Next" [disabled]="SignUp.invalid">
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

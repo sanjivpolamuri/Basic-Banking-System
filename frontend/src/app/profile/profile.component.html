@@ -1,0 +1,71 @@
+<div class="m">
+    <div class="container">
+      <div class="title">profile</div>
+      <div class="content">
+        <form [formGroup]="profile" (ngSubmit)="submit()">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">First Name</span>
+              <input type="text"  formControlName ="firstName" placeholder="Enter your FirstName " >
+              <small class="p-error d-block" *ngIf="profile.get('firstName')?.invalid && profile.get('firstName')?.dirty && profile.get('firstName')?.hasError('required')">Please enter the first name</small> 
+            </div>
+
+            <div class="input-box">
+                <span class="details">Last Name</span>
+                <input type="text"  formControlName ="lastName" placeholder="Enter your lastName " >
+                <small class="p-error d-block" *ngIf="profile.get('lastName')?.invalid && profile.get('lastName')?.dirty && profile.get('lastName')?.hasError('required')">Please enter the Last name</small> 
+            </div>
+
+            <div class="input-box">
+                <span class="details">Location</span>
+                <input type="text"  formControlName ="location" placeholder="Enter your location " >
+                <small class="p-error d-block" *ngIf="profile.get('location')?.invalid && profile.get('location')?.dirty && profile.get('location')?.hasError('required')">Please enter the location</small> 
+            </div>
+            
+            <div class="input-box">
+                <span class="details">Year of Passing/Passed</span>
+                <input type="text"  formControlName ="yearOfPassing" placeholder="Enter your year Of Passing/passed " >
+                <small class="p-error d-block" *ngIf="profile.get('yearOfPassing')?.invalid && profile.get('yearOfPassing')?.dirty && profile.get('yearOfPassing')?.hasError('required')">Please enter the year Of Passing/passed</small> 
+            </div>
+
+            <div class="input-box">
+                <span class="details">Experience</span>
+                <input type="text"  formControlName ="experience" placeholder="Enter your Experience " >
+                <small class="p-error d-block" *ngIf="profile.get('experience')?.invalid && profile.get('experience')?.dirty && profile.get('experience')?.hasError('required')">Please enter the Experience</small> 
+            </div>
+
+            <div class="input-box">
+                <span class="details">Skills</span>
+                <input type="text" formControlName ="skills" placeholder="Enter your skills " >
+                <small class="p-error d-block" *ngIf="profile.get('skills')?.invalid && profile.get('skills')?.dirty && profile.get('skills')?.hasError('required')">Please enter the Skills</small> 
+            </div>
+
+            <div class="input-box-radio">
+                <span class="details">Gender :</span>
+                <input type="radio" formControlName="gender" value="male">  Male
+                <input type="radio" formControlName="gender" value="female"> Female
+                <small class="p-error d-block" *ngIf="profile.get('gender')!.invalid && profile.get('gender')?.dirty && profile.ge('gender')?.hasError('required')">Please select any field</small>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Phone Number</span>
+                <input type="text"  formControlName ="phoneNo" placeholder="Enter your phone number " >
+                <div *ngIf="profile.controls.phoneNo.invalid && (profile.controls.phoneNo.dirty || profile.controls.phoneNo.touched)">
+                    <div *ngIf="profile.controls.phoneNo.errors.required"><small class="p-error">Phone number is required.</small></div>
+                    <div *ngIf="profile.controls.phoneNo.errors.pattern"><small class="p-error">Invalid phone number.</small></div>
+                </div>
+            </div>
+
+            <div class="input-box-file">
+                <span class="details">Image</span>
+                <input type="file" accpet=".jpg,.png,.jpeg" formControlName="file" (change)="onChange($event)">
+            </div>
+          </div>
+
+          <div class="button">
+            <input type="submit"  value="Next" [disabled]="profile.invalid">
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.logo{
+    display:flex;
+}
+.companyname{
+    padding-top:20px;
+    padding-left:10px;
+    font-size:larger;
+    color:white;
+}
+.line{
+    color:white;
+    margin-left:15px;
+    margin-right:20px;
+}
+.nav-items{
+    padding-top: 40px;
+}
+.nav-item {
+    padding: 25px 40px;
+}
+i{
+    margin-right: 20px;
+    font-size: 22px;
+  }
+span{
+    display:inline;
+}
+a{
+    text-decoration: none;
+    color:white;
+}

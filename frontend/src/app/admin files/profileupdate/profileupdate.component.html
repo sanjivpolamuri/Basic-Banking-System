@@ -1,0 +1,51 @@
+<div class="m">
+    <div class="container">
+      <div class="title">profile</div>
+      <div class="content">
+        <form [formGroup]="profile" (ngSubmit)="submit()">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">First Name</span>
+              <input type="text"  formControlName ="firstName" placeholder="Enter your FirstName " >
+            </div>
+
+            <div class="input-box">
+                <span class="details">Last Name</span>
+                <input type="text"  formControlName ="lastName" placeholder="Enter your lastName " >
+            </div>
+
+            <div class="input-box">
+                <span class="details">Location</span>
+                <input type="text"  formControlName ="location" placeholder="Enter your location " >
+            </div>
+            
+            <div class="input-box">
+                <span class="details">Year of Passing/Passed</span>
+                <input type="text"  formControlName ="yearOfPassing" placeholder="Enter your year Of Passing/passed " >
+            </div>
+
+            <div class="input-box">
+                <span class="details">Experience</span>
+                <input type="text"  formControlName ="experience" placeholder="Enter your Experience " >
+            </div>
+
+            <div class="input-box">
+                <span class="details">Skills</span>
+                <input type="text" formControlName ="skills" placeholder="Enter your skills " >
+            </div>
+
+            <div class="input-box">
+                <span class="details">Phone Number</span>
+                <input type="text"  formControlName ="phoneNo" placeholder="Enter your phone number " >
+                <div *ngIf="profile.controls.phoneNo.invalid && (profile.controls.phoneNo.dirty || profile.controls.phoneNo.touched)">
+                    <div *ngIf="profile.controls.phoneNo.errors.pattern"><small class="p-error">Invalid phone number.</small></div>
+                </div>
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit"  value="Next">
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

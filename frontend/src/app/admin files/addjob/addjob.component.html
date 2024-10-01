@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="title">JobsForm</div>
+    <div class="content">
+      <form [formGroup]="sampleform" (ngSubmit)="onSubmit()">
+        <!-- <img src="assets/Angular.png" alt="" class="center"> -->
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Title</span>
+            <input type="text" formControlName="title" placeholder="Enter your Job role" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Job Type</span>
+            <input type="text" formControlName="jobType" placeholder="Enter your Job type" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Company ID</span>
+            <input type="text" formControlName="companyId" placeholder="Enter your Company ID" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Location</span>
+            <input type="text" formControlName="location" placeholder="Enter your location" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Salary</span>
+            <input type="text" formControlName="salary" placeholder="Enter your salary" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Company Name</span>
+            <input type="text" formControlName="companyName" placeholder="Enter your Company Name" required>
+          </div>
+          <div class="input-box">
+              <span class="details">Skills</span>
+              <input type="text" formControlName="jobSkills" placeholder="Enter the skills" required>
+            </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Submit" [disabled]="sampleform.invalid">
+        </div>
+      </form>
+    </div>
+  </div>

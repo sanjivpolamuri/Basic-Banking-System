@@ -1,0 +1,25 @@
+<h1 style="border-top: 30px rgb(150, 206, 198);; background: rgb(150, 206, 198);;">JoBSeeKerS</h1>
+<div class="logindiv">
+    <p-card class="userclass">
+    <h1>Login</h1>
+    <form action="" [formGroup]="mylogin" (ngSubmit)="submit()" class="flex justify-content-center">
+      <div class="field">
+        <label for="email" class="d-block p-2">Email</label>
+        <input type="email" pInputText placeholder="Enter your email" formControlName="email" >
+      </div>
+      <small class="p-error d-block" *ngIf="mylogin.get('email')?.invalid && mylogin.get('email')?.dirty && mylogin.get('email')?.hasError('required')">Please enter the email</small> 
+      <small class="p-error d-block" *ngIf="mylogin.get('email')?.hasError('email')">Enter the correct email id format</small>
+      <div class="field">
+        <label for="password" class="d-block p-2">Password</label>
+        <input type="password" pInputText placeholder="Enter your password" formControlName="password">
+      </div>
+      <small class="p-error d-block" *ngIf="mylogin.get('password')?.invalid && mylogin.get('password')?.dirty && mylogin.get('password')?.hasError('required')">Please enter the password</small>
+      <small><a routerLink="/forgetpassword">Forget password?</a></small>
+      <br>
+      <div class="btnval d-block">
+        <p-button label="submit" type="submit" styleClass="p-button-rounded" [disabled]="mylogin.invalid" width="150px" height="10px"></p-button>
+      </div>
+    </form>
+    <small>Don't have an account? <a routerLink="/signup">signup</a></small>
+    </p-card>
+</div>  

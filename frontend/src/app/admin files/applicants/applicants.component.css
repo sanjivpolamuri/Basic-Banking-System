@@ -1,0 +1,44 @@
+
+.maincontainer{
+    display:flex;
+    padding-bottom:10px;
+  }
+  .searchbar{
+    flex:1;
+    text-align: right;
+    padding-right:40px;
+  }
+  .styled-table {
+      width: 80%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+    }
+    
+    .styled-table th {
+      font-size:smaller;
+      background-color: #f8f8f8;
+      color: #333;
+      font-weight: bold;
+      padding: 5px;
+      text-align: left;
+    }
+    
+    .styled-table td {
+      font-size:small;
+      border: 1px solid #ddd;
+      padding: 2px;
+    }
+    .statustxt{
+        padding-left:5px;
+        text-align:center;
+        font-size:17px;
+        padding-right:5px;
+    }
+  .styled-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  .paginationdiv{
+    padding-top:10px;
+    text-align:center;
+    padding-right:5px;
+  }
